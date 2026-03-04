@@ -10,7 +10,7 @@ export default function NavBar() {
   const fetchPortfolio = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8080/api/my-portfolio", {
+      const response = await fetch("https://fastapi-cryptopulse-qoh3-git-main-luucassrs-projects.vercel.app/api/my-portfolio", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
