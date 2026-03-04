@@ -12,8 +12,8 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from pwdlib import PasswordHash
 from coinpaprika.client import Client
-from db.query import get_user_by_id, create_user, get_user_by_identifier
-from db.models import (
+from backend.db.query import get_user_by_id, create_user, get_user_by_identifier
+from backend.db.models import (
     UserRegister,
     UserTable,
     UserAsset,
