@@ -1,2 +1,16 @@
+[project]
+name = "fastapi-cryptopulse"
+version = "0.1.0"
+description = "CryptoPulse API"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "sqlalchemy",
+    "psycopg2-binary",
+    "pydantic",
+    "pydantic-settings"
+]
+
 [tool.setuptools]
 packages = ["backend"]
