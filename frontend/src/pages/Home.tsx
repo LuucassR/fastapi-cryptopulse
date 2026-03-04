@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 export default function Home() {
   return (
     <div className="min-h-screen w-full bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden">
+      <NavBar />
       {/* Decoración de fondo: Luces difusas */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-600/20 rounded-full blur-[120px]"></div>
+      <div className="absolute  top-1/4 left-1/4 w-64 h-64 bg-blue-600/20 rounded-full blur-[120px]"></div>
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-cyan-600/20 rounded-full blur-[120px]"></div>
 
       <main className="relative z-10 text-center px-6">
@@ -20,7 +22,7 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {/* BOTÓN PRINCIPAL PARA IR A /COINS */}
           <Link
-            to="/coins"
+            to="/market"
             className="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.4)]"
           >
             Explorar Monedas

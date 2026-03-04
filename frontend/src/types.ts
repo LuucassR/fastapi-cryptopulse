@@ -25,5 +25,36 @@ export interface Coin {
   type: string;
   logo: string;
   description: string;
-  tags: Tags[];
+  quotes?: {
+    USD: {
+      price: number;
+      volume_24h: number;
+      market_cap: number;
+      percent_change_24h: number;
+    };
+  };
+  tags?: Tags[];
+}
+
+export interface formRegisterData {
+  full_name: string;
+  username: string;
+  email: string;
+  password: string;
+}
+
+export interface Asset {
+  id: number;
+  crypto_id: string;
+  name: string;
+  symbol: string;
+  amount: number;
+  logo: string;
+  total_value_usd: number;
+  percent_change_24h: number;
+}
+
+export interface PortfolioData {
+  cash: number;
+  assets: Asset[];
 }

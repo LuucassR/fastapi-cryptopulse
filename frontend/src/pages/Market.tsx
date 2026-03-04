@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import type { Coins } from "../types";
 import DashboardSkeleton from "../ui/DashboardSkeleton";
+import NavBar from "../components/NavBar";
 
-export default function Dashboard() {
+export default function Market() {
   const [loading, setLoading] = useState<boolean>(true);
   const [coins, setCoins] = useState<Coins[]>([]);
   const [search, setSearch] = useState("");
@@ -14,7 +15,7 @@ export default function Dashboard() {
     let isMounted = true;
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8000/coins");
+        const response = await fetch("http://localhost:8080/coins");
         if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
 
         const all_coins = await response.json();
@@ -46,8 +47,9 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col min-h-screen w-full bg-slate-950 text-white p-8">
+      <NavBar />
       <header className="text-center">
-        <h1 className="text-4xl font-extrabold bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+        <h1 className="text-4xl mt-14 font-extrabold bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
           Crypto Pulse
         </h1>
       </header>
