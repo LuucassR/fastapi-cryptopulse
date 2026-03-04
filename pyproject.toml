@@ -1,17 +1,27 @@
 [project]
 name = "fastapi-cryptopulse"
 version = "0.1.0"
-description = "CryptoPulse API"
+description = "Backend para el seguimiento de portafolio cripto con FastAPI y SQLAlchemy"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi",
-    "uvicorn",
+    "uvicorn[standard]",
     "sqlalchemy",
     "psycopg2-binary",
+    "python-dotenv",
+    "requests",
+    "pyjwt",
+    "pwdlib[argon2]",
+    "coinpaprika-sdk",
     "pydantic",
     "pydantic-settings",
-    "requests"
+    "python-multipart"
 ]
 
 [tool.setuptools]
+# Esto es CRUCIAL: le dice a Python que solo 'backend' es código de servidor,
+# evitando que intente instalar la carpeta 'frontend' como si fuera Python.
 packages = ["backend"]
+
+[tool.setuptools.package-data]
+"*" = ["*.py"]
