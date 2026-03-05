@@ -69,7 +69,7 @@ origins = [
 # Utilizamos los middlewares para aceptar los CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"], # Temporalmente para descartar errores de string
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
