@@ -67,7 +67,7 @@ origins = [
     "https://fastapi-cryptopulse-qoh3-git-main-luucassrs-projects.vercel.app/",
     "https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app/",
     "https://fastapi-cryptopulse.vercel.app/",
-    "fastapi-cryptopulse-luucassrs-projects.vercel.app",
+    "https://fastapi-cryptopulse-luucassrs-projects.vercel.app",
 ]
 
 # Utilizamos los middlewares para aceptar los CORS
