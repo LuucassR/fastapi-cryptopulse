@@ -21,17 +21,8 @@
       "dest": "backend/main.py"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "frontend/dist/assets/$1"
-    },
-    {
-      "src": "/(.*\\.(js|css|ico|png|svg|json))",
-      "dest": "frontend/dist/$1"
-    },
-    {
       "src": "/(.*)",
-      "status": 200,
-      "dest": "frontend/dist/index.html"
+      "dest": "frontend/$1"
     }
   ]
 }
