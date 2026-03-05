@@ -5,6 +5,7 @@ import CryptoChart from "../components/CryptoChart";
 import "../global.css";
 import NavBar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../api";
 
 export default function Coin() {
   const [coin, setCoin] = useState<Coin>();
@@ -36,7 +37,7 @@ export default function Coin() {
     setIsAdding(true);
 
     try {
-      const response = await fetch("https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app/api/portfolio/add", {
+      const response = await fetch(`${API_URL}/api/portfolio/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

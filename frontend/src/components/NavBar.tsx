@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "../api";
 
 export default function NavBar() {
   const [userName, setUserName] = useState<string | null>(null);
@@ -10,7 +11,7 @@ export default function NavBar() {
   const fetchPortfolio = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app/api/my-portfolio", {
+      const response = await fetch(`${API_URL}/api/my-portfolio`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

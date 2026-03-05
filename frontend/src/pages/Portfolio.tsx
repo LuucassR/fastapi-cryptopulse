@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LoadingDots from "../components/LoadingDots";
 import type { Asset } from "../types"; // Asumo que tienes el tipo Asset definido en types.ts
+import { API_URL } from "../api";
 
 export default function Portfolio() {
   const [assets, setAssets] = useState<Asset[] | null>(null);
@@ -13,7 +14,7 @@ export default function Portfolio() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app/api/my-portfolio", {
+      const response = await fetch(`${API_URL}/api/my-portfolio`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

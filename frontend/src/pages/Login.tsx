@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NavBar from "../components/NavBar";
+import { API_URL } from "../api";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ export default function Login() {
       loginParams.append("username", identifier);
       loginParams.append("password", formData.password);
 
-      const response = await fetch("https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app/token", {
+      const response = await fetch(`${API_URL}/token`, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: loginParams,

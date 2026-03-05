@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import type { Coins } from "../types";
 import DashboardSkeleton from "../ui/DashboardSkeleton";
 import NavBar from "../components/NavBar";
+import { API_URL } from "../api";
 
 export default function Market() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -15,7 +16,7 @@ export default function Market() {
     let isMounted = true;
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/coins");
+        const response = await fetch(`${API_URL}/api/coins`);
         if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
 
         const all_coins = await response.json();

@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { formRegisterData } from "../types";
 import { redirect } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import { API_URL } from "../api";
 
 export default function Login() {
   const [formData, setFormData] = useState<formRegisterData>({
@@ -18,7 +19,7 @@ export default function Login() {
     setLoading(true); 
 
     try {
-      const response = await fetch("https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app/api/create/user", {
+      const response = await fetch(`${API_URL}/api/create/user`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
