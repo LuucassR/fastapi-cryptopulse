@@ -65,6 +65,7 @@ origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "https://fastapi-cryptopulse-qoh3-git-main-luucassrs-projects.vercel.app/",
+    "https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app/"
 ]
 
 # Utilizamos los middlewares para aceptar los CORS
