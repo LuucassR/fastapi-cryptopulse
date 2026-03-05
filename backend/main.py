@@ -64,9 +64,9 @@ origins = [
     "http://localhost:3000",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://fastapi-cryptopulse-qoh3-git-main-luucassrs-projects.vercel.app/",
-    "https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app/",
-    "https://fastapi-cryptopulse.vercel.app/",
+    "https://fastapi-cryptopulse-qoh3-git-main-luucassrs-projects.vercel.app",
+    "https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app",
+    "https://fastapi-cryptopulse.vercel.app",
     "https://fastapi-cryptopulse-luucassrs-projects.vercel.app",
 ]
 
