@@ -60,16 +60,18 @@ password_hash = PasswordHash.recommended()
 
 # Declaramos las CORS para que los fetchs sean aceptadas en estas rutas
 # Estas rutas son de development cambiar luego para production
-origins = [
-    "http://localhost:5173",
-    "https://fastapi-cryptopulse.vercel.app",  # Tu URL principal
-    "https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app",  # Tu URL de despliegue
-]
+# origins = [
+#     "http://localhost:5173",
+#     "https://fastapi-cryptopulse.vercel.app",  # Tu URL principal
+#     "https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app",  # Tu URL de despliegue
+# ]
 
 # Utilizamos los middlewares para aceptar los CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Temporalmente para descartar errores de string
+    allow_origins=[
+        "https://fastapi-cryptopulse.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

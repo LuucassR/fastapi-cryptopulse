@@ -12,19 +12,9 @@
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/main.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "frontend/$1",
-      "check": true
-    },
-    {
-      "src": "/(.*)",
-      "status": 200,
-      "dest": "frontend/index.html"
-    }
+    { "src": "/api/(.*)", "dest": "backend/main.py" },
+    { "src": "/token", "dest": "backend/main.py" },
+    { "src": "/coins(.*)", "dest": "backend/main.py" },
+    { "src": "/(.*)", "dest": "frontend/index.html" }
   ]
 }
