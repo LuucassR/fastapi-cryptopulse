@@ -26,11 +26,9 @@
     }
   ],
   "routes": [
-    { "src": "/coins(.*)", "dest": "backend/main.py" },
+    { "src": "/coins", "dest": "backend/main.py" },
     { "src": "/token", "dest": "backend/main.py" },
-    { "src": "/test", "dest": "backend/main.py" },
     { "src": "/api/(.*)", "dest": "backend/main.py" },
-    { "src": "/assets/(.*)", "dest": "frontend/assets/$1" },
     { "src": "/(.*)", "dest": "frontend/index.html", "check": true }
   ]
 }
