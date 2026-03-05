@@ -15,7 +15,7 @@ export default function Market() {
     let isMounted = true;
     const fetchData = async () => {
       try {
-        const response = await fetch("https://fastapi-cryptopulse-qoh3.vercel.app/coins");
+        const response = await fetch("https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app/coins");
         if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
 
         const all_coins = await response.json();

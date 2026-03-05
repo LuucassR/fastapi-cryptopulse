@@ -36,7 +36,7 @@ export default function Coin() {
     setIsAdding(true);
 
     try {
-      const response = await fetch("https://fastapi-cryptopulse-qoh3.vercel.app/api/portfolio/add", {
+      const response = await fetch("https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app/api/portfolio/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
