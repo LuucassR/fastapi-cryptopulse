@@ -11,30 +11,10 @@
       "config": { "distDir": "dist" }
     }
   ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/main.py"
-    },
-    {
-      "src": "/token",
-      "dest": "backend/main.py"
-    },
-    {
-      "src": "/coins(.*)",
-      "dest": "backend/main.py"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*\\.(js|css|ico|png|svg|woff2|json))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/backend/main.py" },
+    { "source": "/token", "destination": "/backend/main.py" },
+    { "source": "/coins(.*)", "destination": "/backend/main.py" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
