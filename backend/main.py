@@ -50,7 +50,7 @@ def get_db():
 
 
 # Creamos el app para utilizar los decorators con fastApi
-app = FastAPI(root_path="/api")
+app = FastAPI()
 
 # Declaramos el cliente de coinpaprika para el request de la API
 free_client = Client()
