@@ -13,8 +13,6 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "backend/main.py" },
-    { "src": "/token", "dest": "backend/main.py" },
-    { "src": "/coins(.*)", "dest": "backend/main.py" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
