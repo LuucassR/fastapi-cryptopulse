@@ -50,7 +50,7 @@ def get_db():
 
 
 # Creamos el app para utilizar los decorators con fastApi
-app = FastAPI(root_path="/api")
+app = FastAPI()
 
 # Declaramos el cliente de coinpaprika para el request de la API
 free_client = Client()
@@ -189,7 +189,7 @@ def get_btc_ticker():
         return {"error": str(e)}
 
 
-@app.get("/coins")
+@app.get("/api/coins")
 def get_coins():
     """Lista todas las monedas usando Coinpaprika Client."""
     try:
@@ -198,7 +198,7 @@ def get_coins():
         return {"error": str(e)}
 
 
-@app.get("/coins/{coin_id}")
+@app.get("/api/coins/{coin_id}")
 async def get_coin(coin_id: str):
     try:
         coin_data = free_client.coin(coin_id)
