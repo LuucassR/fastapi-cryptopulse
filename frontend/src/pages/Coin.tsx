@@ -63,7 +63,7 @@ export default function Coin() {
   useEffect(() => {
     const getCoin = async (coin_id: string) => {
       try {
-        const response = await fetch(`http://localhost:8080/coins/${coin_id}`);
+        const response = await fetch(`${API_URL}/coins/${coin_id}`);
         const data = await response.json();
         setCoin(data);
       } catch (error) {
