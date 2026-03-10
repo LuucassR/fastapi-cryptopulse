@@ -11,8 +11,6 @@ def get_user_by_id(session: Session, id: int):
 
 
 def get_user_by_identifier(db: Session, identifier: str):
-    from db.models import UserTable
-
     # Busca si el identificador coincide con el username O con el email
     return (
         db.query(UserTable)
