@@ -143,7 +143,7 @@ def test():
 
 
 # --- RUTAS DE AUTENTICACIÓN ---
-@app.post("/token")
+@app.post("/api/token")
 async def login_for_access_token(
     form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
     db: Session = Depends(get_db),  # <--- Inyectamos la DB aquí
