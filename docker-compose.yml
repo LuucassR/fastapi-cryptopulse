@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Base de datos
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=neondb_owner
+      - POSTGRES_PASSWORD=npg_n7srvuXRg3CE
+      - POSTGRES_DB=cryptopulse_db
+    ports:
+      - "5432:5432"
+
+  # Backend FastAPI
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://neondb_owner:npg_n7srvuXRg3CE@ep-young-tooth-aiola5p0-pooler.c-4.us-east-1.aws.neon.tech/neondb?sslmode=require
+    depends_on:
+      - db
+
+  # Frontend React
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules # Evita que los nodos locales sobrescriban el contenedor
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

@@ -12,8 +12,8 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from pwdlib import PasswordHash
 from coinpaprika.client import Client
-from backend.db.query import get_user_by_id, create_user, get_user_by_identifier
-from backend.db.models import (
+from db.query import get_user_by_id, create_user, get_user_by_identifier
+from db.models import (
     UserRegister,
     UserTable,
     UserAsset,
@@ -61,7 +61,6 @@ password_hash = PasswordHash.recommended()
 # Declaramos las CORS para que los fetchs sean aceptadas en estas rutas
 # Estas rutas son de development cambiar luego para production
 # origins = [
-#     "http://localhost:5173",
 #     "https://fastapi-cryptopulse.vercel.app",  # Tu URL principal
 #     "https://fastapi-cryptopulse-git-main-luucassrs-projects.vercel.app",  # Tu URL de despliegue
 # ]
@@ -71,6 +70,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://fastapi-cryptopulse.vercel.app",
+        "http://localhost:5173",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -179,16 +179,6 @@ async def login_for_access_token(
 
 
 # --- RUTAS DE CRIPTOMONEDAS ---
-@app.get("/")
-def get_btc_ticker():
-    """Retorna datos básicos de BTC usando requests."""
-    try:
-        response = requests.get("https://api.coinpaprika.com/v1/tickers/btc-bitcoin")
-        return response.json()
-    except Exception as e:
-        return {"error": str(e)}
-
-
 @app.get("/api/coins")
 def get_coins():
     """Lista todas las monedas usando Coinpaprika Client."""
