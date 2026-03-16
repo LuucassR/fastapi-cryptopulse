@@ -1,8 +1,8 @@
 import os
 from dotenv import load_dotenv
-import requests
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
+from dotenv import load_dotenv
 import jwt
 from jwt.exceptions import InvalidTokenError
 from datetime import datetime, timedelta, timezone
@@ -10,10 +10,11 @@ from typing import Annotated
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
+# from fastapi.testclient import TestClient
 from pwdlib import PasswordHash
 from coinpaprika.client import Client
-from db.query import get_user_by_id, create_user, get_user_by_identifier
-from db.models import (
+from backend.db.query import get_user_by_id, create_user, get_user_by_identifier
+from backend.db.models import (
     UserRegister,
     UserTable,
     UserAsset,
@@ -52,6 +53,8 @@ def get_db():
 # Creamos el app para utilizar los decorators con fastApi
 app = FastAPI()
 
+# client = TestClient(app)
+
 # Declaramos el cliente de coinpaprika para el request de la API
 free_client = Client()
 
@@ -77,6 +80,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+chat_sessions = {}
 
 # --- UTILIDADES DE SEGURIDAD ---
 DUMMY_HASH = password_hash.hash("dummypassword")
@@ -137,9 +141,9 @@ async def get_current_user(
 
 
 # --- RUTAS DE TESTEO ---
-@app.get("/test")
-def test():
-    return free_client.markets("btc-bitcoin", quotes="USD")[1]["quotes"]["USD"]["price"]
+# @app.get("/test")
+# def test():
+#     return free_client.markets("btc-bitcoin", quotes="USD")[1]["quotes"]["USD"]["price"]
 
 
 # --- RUTAS DE AUTENTICACIÓN ---
@@ -183,7 +187,7 @@ async def login_for_access_token(
 def get_coins():
     """Lista todas las monedas usando Coinpaprika Client."""
     try:
-        return free_client.coins()
+        return free_client.coins()[:20]
     except Exception as e:
         return {"error": str(e)}
 
@@ -266,6 +270,12 @@ async def get_my_portfolio(
         "cash": float(current_user.cash),
         "assets": assets_list,
     }
+
+@app.get("/api/my-portfolio/cash")
+async def get_user_money(
+    current_user: Annotated[UserTable, Depends(get_current_user)],
+):
+    return current_user.cash
 
 
 @app.post("/api/portfolio/add")
