@@ -187,7 +187,7 @@ async def login_for_access_token(
 def get_coins():
     """Lista todas las monedas usando Coinpaprika Client."""
     try:
-        return free_client.coins()[:20]
+        return free_client.coins()
     except Exception as e:
         return {"error": str(e)}
 
