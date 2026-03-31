@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";ledtjbnñbjenblkeajbvnledabj,
 import { Link } from "react-router-dom";
 import LoadingDots from "../components/LoadingDots";
 import type { Asset } from "../types"; // Asumo que tienes el tipo Asset definido en types.ts

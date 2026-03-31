@@ -58,3 +58,9 @@ export interface PortfolioData {
   cash: number;
   assets: Asset[];
 }
+
+type loginWithUsername = { username: string; gmail?: never };
+
+type loginWithGmail = { username?: never; gmail: string };
+
+export type loginMethod = loginWithGmail | loginWithUsername
